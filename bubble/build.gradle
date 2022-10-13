@@ -28,6 +28,11 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+     publishing {
+        singleVariant("release") {
+            withSourcesJar()
+        }
+    }
 }
 
 afterEvaluate {
@@ -38,7 +43,7 @@ afterEvaluate {
 
                 groupId = 'com.orbitalsonic.bubble'
                 artifactId = 'bubbleview'
-                version = '1.0.0'
+                version = '1.0.1'
             }
         }
     }
