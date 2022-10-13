@@ -4,10 +4,11 @@ import android.content.Context
 import android.graphics.*
 import android.util.TypedValue
 import androidx.core.content.ContextCompat
-import com.orbitalsonic.bubblelevel.R
+import com.orbitalsonic.bubble.R
 
-class AccelerometerDrawer(context: Context, private val isSimple: Boolean) : ViewDrawer<PointF?> {
+class AccelerometerDrawer(context: Context, private val isSimple: Boolean) :ViewDrawer<PointF?> {
     private val pathPaint: Paint
+    private val fillPaint: Paint
     private val ballPaint: Paint
     private var path: Path? = null
     private var xPos = 0f
@@ -32,10 +33,11 @@ class AccelerometerDrawer(context: Context, private val isSimple: Boolean) : Vie
     }
 
     override fun draw(canvas: Canvas?) {
-        //Draw grid
-        canvas!!.drawPath(path!!, pathPaint)
-        //Draw ball
-        canvas.drawCircle(center.x - xPos, center.y + yPos, radius.toFloat(), ballPaint)
+        canvas?.apply {
+            drawPath(path!!,fillPaint)
+            drawPath(path!!,pathPaint) //Draw ball
+            drawCircle(center.x-xPos,center.y+yPos,radius.toFloat(),ballPaint)
+        }
     }
 
     override fun update(value: PointF?) {
@@ -45,31 +47,37 @@ class AccelerometerDrawer(context: Context, private val isSimple: Boolean) : Vie
 
     init {
         val gridColor: Int
+        val fillColor: Int
         val ballColor: Int
         val typedValue = TypedValue()
         val theme = context.theme
 
 
-        gridColor = if (theme.resolveAttribute(R.attr.accelerometerGridColor, typedValue, true)) {
+        gridColor = if (theme.resolveAttribute(R.attr.colorPrimaryDark, typedValue, true)) {
             typedValue.data
-        }
-        else {
+        }else {
             ContextCompat.getColor(context,R.color.white)
         }
-        ballColor = if (theme.resolveAttribute(R.attr.accelerometerBallColor, typedValue, true)) {
+        fillColor = if (theme.resolveAttribute(R.attr.themeColorAccent,typedValue,true)) {
             typedValue.data
+        }else {
+            ContextCompat.getColor(context,R.color.black)
         }
-        else {
+        ballColor = if (theme.resolveAttribute(R.attr.colorPrimaryDark, typedValue, true)) {
+            typedValue.data
+        }else {
             ContextCompat.getColor(context,R.color.transparent)
         }
         pathPaint = Paint(Paint.ANTI_ALIAS_FLAG)
         pathPaint.strokeWidth = 1f
         pathPaint.style = Paint.Style.STROKE
         pathPaint.color = gridColor
+        fillPaint = Paint(Paint.ANTI_ALIAS_FLAG)
+        fillPaint.style = Paint.Style.FILL
+        fillPaint.color = fillColor
         ballPaint = Paint(Paint.ANTI_ALIAS_FLAG)
         ballPaint.style = Paint.Style.FILL
         ballPaint.color = ballColor
-        ballPaint.alpha = Color.alpha(R.color.view_color)
         center = Point(0, 0)
     }
 }

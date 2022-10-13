@@ -6,7 +6,6 @@ import android.graphics.PointF
 import android.util.AttributeSet
 import android.view.View
 import com.orbitalsonic.bubblelevel.AndroidUtils
-import com.orbitalsonic.bubblelevel.widget.AccelerometerDrawer
 import kotlin.math.cos
 
 class AccelerometerView : View {
