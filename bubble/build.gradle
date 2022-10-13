@@ -41,7 +41,7 @@ afterEvaluate {
             release(MavenPublication) {
                 from components.release
 
-                groupId = 'com.orbitalsonic.bubble'
+                groupId = 'com.github.JarmoKukkola'
                 artifactId = 'bubbleview'
                 version = '1.0.1'
             }
