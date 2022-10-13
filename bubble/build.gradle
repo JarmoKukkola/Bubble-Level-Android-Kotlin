@@ -11,8 +11,6 @@ android {
     defaultConfig {
         minSdk 16
         targetSdk 33
-        versionCode 1
-        versionName "1.0"
     }
 
     buildTypes {
@@ -41,8 +39,8 @@ afterEvaluate {
                 from components.release
 
                 groupId = 'com.github.JarmoKukkola'
-                artifactId = 'bubbleview'
-                version = '1.0.1'
+                artifactId = 'Bubble-Level-Android-Kotlin'
+                version = '1.0.5'
             }
         }
     }
