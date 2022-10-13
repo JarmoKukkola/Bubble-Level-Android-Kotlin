@@ -1,4 +1,4 @@
-package com.orbitalsonic.bubblelevel
+package com.orbitalsonic.bubble
 
 import android.content.Context
 import android.content.Context.SENSOR_SERVICE
@@ -17,7 +17,7 @@ import android.view.WindowManager
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.orbitalsonic.bubble.R
-import com.orbitalsonic.bubblelevel.widget.AccelerometerView
+import com.orbitalsonic.bubble.widget.AccelerometerView
 
 class BubbleFragment:Fragment(),SensorEventListener {
     private lateinit var acceleroMeterView:AccelerometerView

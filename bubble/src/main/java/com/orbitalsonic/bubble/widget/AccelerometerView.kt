@@ -1,11 +1,11 @@
-package com.orbitalsonic.bubblelevel.widget
+package com.orbitalsonic.bubble.widget
 
 import android.content.Context
 import android.graphics.Canvas
 import android.graphics.PointF
 import android.util.AttributeSet
 import android.view.View
-import com.orbitalsonic.bubblelevel.AndroidUtils
+import com.orbitalsonic.bubble.AndroidUtils
 import kotlin.math.cos
 
 class AccelerometerView : View {

@@ -1,4 +1,4 @@
-package com.orbitalsonic.bubblelevel.widget
+package com.orbitalsonic.bubble.widget
 
 import android.content.Context
 import android.graphics.*

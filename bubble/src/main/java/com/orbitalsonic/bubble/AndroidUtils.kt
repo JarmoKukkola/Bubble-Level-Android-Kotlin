@@ -1,4 +1,4 @@
-package com.orbitalsonic.bubblelevel
+package com.orbitalsonic.bubble
 
 import android.content.res.Resources
 
