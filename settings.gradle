@@ -15,5 +15,4 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "Bubble Level"
-include ':app'
 include ':bubble'
